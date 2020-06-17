@@ -12,7 +12,8 @@
     label {
       display: block;
     }
-    input {
+    input, button {
+      box-sizing: border-box;
       width: 200px;
     }
   }
@@ -21,6 +22,7 @@
   }
   
   .person {
+    cursor: pointer;
     background-color: #fff;
     padding: 10px;
     max-width: 200px;

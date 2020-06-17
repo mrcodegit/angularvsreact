@@ -6,6 +6,10 @@ class App extends Component<{}, any> {
 
   cls = "App";
 
+  test = () => {
+    console.log('test');
+  }
+
   constructor(props: any) {
     super(props);
     this.state = {
@@ -19,10 +23,11 @@ class App extends Component<{}, any> {
         <div className="input-container">
           <label>name</label>
           <input id="name" type="text" />
+          <button>ADD</button>
         </div>
         <div className="persons-list">
-          {this.state.persons.map((person: string) => {
-            return <Person cls="person" name={person}></Person>
+          {this.state.persons.map((person: string, i: number) => {
+            return <Person key={i} cls="person" name={person}></Person>
           })}
         </div>
       </div>
