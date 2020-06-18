@@ -12,7 +12,8 @@
       label {
         display: block;
       }
-      input {
+      input, button {
+        box-sizing: border-box;
         width: 200px;
       }
     }
