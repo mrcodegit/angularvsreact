@@ -1,0 +1,10 @@
+<div class="App">
+  <h1>React vs Angular</h1>
+  <div class="input-container">
+    <label>name</label>
+    <input id="name" type="text" />
+  </div>
+  <div class="persons-list">
+    <app-person *ngFor="let name of persons" [name]="name" ></app-person>
+  </div>
+</div>
