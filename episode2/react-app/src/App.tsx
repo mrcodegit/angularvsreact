@@ -14,7 +14,6 @@ class App extends Component<{}, any> {
   }
 
   change = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
     this.setState({
       inputValue: event.target.value
     })
@@ -24,10 +23,22 @@ class App extends Component<{}, any> {
     this.setState((state: any) =>{
       const persons = state.persons.concat(name);
       return {
-        persons
+        persons,
+        inputValue: ''
       }
     })
   }
+
+  removePerson = (i: number) => {
+    this.setState((state: any) => {
+      const newArray = state.persons.slice();
+      newArray.splice(i, 1);
+      return {
+        persons: newArray
+      }
+    })
+  }
+
 
   render() {
     return (
@@ -35,12 +46,12 @@ class App extends Component<{}, any> {
         <h1>React vs Angular</h1>
         <div className="input-container">
           <label>name</label>
-          <input id="name" type="text" onChange={e => this.change(e)} />
-          <button onClick = {() => {this.addPerson(this.state.inputValue)}} >ADD</button>
+          <input id="name" type="text" value={this.state.inputValue} onChange={e => this.change(e)} />
+          <button disabled={!this.state.inputValue} onClick = {() => {this.addPerson(this.state.inputValue)}} >ADD</button>
         </div>
         <div className="persons-list">
           {this.state.persons.map((person: string, i: number) => {
-            return <Person key={i} cls="person" name={person}></Person>
+            return <Person onClickHandler={() => this.removePerson(i)} key={i} cls="person" name={person}></Person>
           })}
         </div>
       </div>
