@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding, Input } from '@angular/core';
+import { Component, OnInit, HostBinding, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-person',
@@ -7,6 +7,11 @@ import { Component, OnInit, HostBinding, Input } from '@angular/core';
 })
 export class PersonComponent implements OnInit {
   @Input() name: string = '';
+  @Output() personClicked: EventEmitter<any> = new EventEmitter()
   constructor() { }
   ngOnInit(): void {}
+
+  onPersonClicked(): void{
+    this.personClicked.emit();
+  }
 }

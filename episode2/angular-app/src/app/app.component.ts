@@ -11,30 +11,17 @@ export class AppComponent {
   persons: string[] = ['Ragnar', 'Lagertha'];
   inputValue: string = '';
 
-  change = (event: ChangeEvent<HTMLInputElement>) => {
-    this.setState({
-      inputValue: event.target.value
-    })
+  change = (event: Event) => {
+    this.inputValue = (event.target as HTMLInputElement).value;
   }
 
-  addPerson(name: string){
-    this.setState((state: any) =>{
-      const persons = state.persons.concat(name);
-      return {
-        persons,
-        inputValue: ''
-      }
-    })
+  addPerson = (name: string) => {
+    this.persons = this.persons.concat(name);
   }
 
   removePerson = (i: number) => {
-    this.setState((state: any) => {
-      const newArray = state.persons.slice();
+      const newArray = this.persons.slice();
       newArray.splice(i, 1);
-      return {
-        persons: newArray
-      }
-    })
+      this.persons = newArray;
   }
-
 }

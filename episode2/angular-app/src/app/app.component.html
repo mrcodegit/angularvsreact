@@ -2,10 +2,12 @@
   <h1>React vs Angular</h1>
   <div class="input-container">
     <label>name</label>
-    <input id="name" type="text" />
-    <button>ADD</button>
+    <input id="name" type="text" (input)="change($event)"/>
+    <button [disabled]="!inputValue" (click)="addPerson(inputValue)">ADD</button>
   </div>
   <div class="persons-list">
-    <app-person *ngFor="let name of persons" [name]="name" ></app-person>
+    <app-person (personClicked)="removePerson(i)"
+     *ngFor="let name of persons; let i = index"
+    [name]="name" ></app-person>
   </div>
 </div>
