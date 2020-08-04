@@ -30,19 +30,7 @@ class App extends Component<{}, any> {
 
   render() {
     return (
-      <div className="App">
-        <h1>React vs Angular</h1>
-        <div className="input-container">
-          <label>name</label>
-          <input id="name" type="text" onChange={e => this.change(e)} />
-          <button onClick = {() => {this.addPerson(this.state.inputValue)}} >ADD</button>
-        </div>
-        <div className="persons-list">
-          {this.state.persons.map((person: string, i: number) => {
-            return <Person onClick={() => {console.log('test')}} key={i} cls="person" name={person}></Person>
-          })}
-        </div>
-      </div>
+      <Layout></Layout>
     )
   };
 }
