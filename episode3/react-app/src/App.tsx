@@ -1,6 +1,6 @@
-import React, { Component, ChangeEvent } from 'react';
-import Person from './component/Person';
+import React, { ChangeEvent, Component } from 'react';
 import './App.scss';
+import Layout from './containers/layout/Layout';
 
 class App extends Component<{}, any> {
 

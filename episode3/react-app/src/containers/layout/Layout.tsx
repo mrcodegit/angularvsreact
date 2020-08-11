@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Navigation from '../../component/Navigation';
+import Heroes from './../heroes/Heroes';
 class Layout extends Component {
 
-    constructor(props: any){
+    constructor(props: any) {
         super(props);
     }
 
@@ -10,6 +11,9 @@ class Layout extends Component {
         return (
             <React.Fragment>
                 <Navigation></Navigation>
+                <main>
+                    <Heroes></Heroes>
+                </main>
             </React.Fragment>
         )
     }
