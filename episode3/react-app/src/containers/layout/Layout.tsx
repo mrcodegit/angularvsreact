@@ -3,7 +3,7 @@ import Navigation from '../../component/Navigation/Navigation';
 import Heroes from '../Heroes/Heroes';
 import Cities from '../Cities/Cities';
 import classes from './Layout.module.scss';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router, Redirect } from 'react-router-dom';
 class Layout extends Component {
 
     constructor(props: any) {
@@ -23,6 +23,9 @@ class Layout extends Component {
                             </Route>
                             <Route path="/cities">
                                 <Cities></Cities>
+                            </Route>
+                            <Route exact path="/">
+                                <Redirect to="/heroes"></Redirect>
                             </Route>
                         </Switch>
                     </main>
