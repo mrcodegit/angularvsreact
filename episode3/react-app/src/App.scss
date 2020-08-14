@@ -1,39 +1,5 @@
-.App {
-  font-family: 'Open Sans', sans-serif;
-  text-align: center;
-  background-color: #ddd;
-  height: 100vh;
-  padding: 20px;
-  margin: 0 auto;
-
-  .input-container {
-    margin: 0 auto;
-    max-width: 200px;
-    label {
-      display: block;
-    }
-    input, button {
-      box-sizing: border-box;
-      width: 200px;
-    }
-  }
-  .green {
-    background-color: lightgreen;
-  }
-  
-  .person {
-    cursor: pointer;
-    background-color: #fff;
-    padding: 10px;
-    max-width: 200px;
-    box-sizing: border-box;
-    margin: 20px auto 0 auto;
-    &.green {
-      background-color: lightgreen;
-    }
-    & h2:hover & {
-      background-color: red;
-    }  
-  }
+body {
+  padding: 40px 20px;
 }
+
 

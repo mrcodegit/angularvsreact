@@ -1,5 +1,6 @@
 import React, { Component, ReactNode } from 'react';
-import Person from '../../component/Person';
+import Person from '../../component/Person/Person';
+import classes from './Heroes.module.scss';
 class Heroes extends Component<{}, any>  {
   constructor(props: any){
     super(props);
@@ -15,9 +16,8 @@ class Heroes extends Component<{}, any>  {
 
   public render(): ReactNode {
     return (
-      <div className="App">
-        <h1>React vs Angular</h1>
-        <div className="input-container">
+      <div className={classes.Heroes}>
+        <div className={classes.inputContainer}>
           <label>name</label>
           <input id="name" type="text" onChange={e => this.change()} />
           <button onClick={() => { this.addPerson(this.state.inputValue) }} >ADD</button>

@@ -1,0 +1,24 @@
+.Heroes {
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    background-color: #ddd;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    .inputContainer {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        max-width: 200px;
+        label {
+            display: block;
+        }
+        input,
+        button {
+            box-sizing: border-box;
+            width: 200px;
+        }
+    }
+    .green {
+        background-color: lightgreen;
+    }
+}
