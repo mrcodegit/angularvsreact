@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import Navigation from '../../component/Navigation/Navigation';
-import Heroes from '../Heroes/Heroes';
 import Cities from '../Cities/Cities';
 import classes from './Layout.module.scss';
-import { Switch, Route, BrowserRouter as Router, Redirect } from 'react-router-dom';
+
+const Heroes = React.lazy(() => import("../Heroes/Heroes"));
+
 class Layout extends Component {
 
     constructor(props: any) {
         super(props);
     }
-
     render() {
         return (
             <Router>
@@ -17,17 +18,15 @@ class Layout extends Component {
                     <Navigation></Navigation>
                     <main>
                         <h1>React vs Angular</h1>
-                        <Switch>
-                            <Route path="/heroes">
-                                <Heroes></Heroes>
-                            </Route>
-                            <Route path="/cities">
-                                <Cities></Cities>
-                            </Route>
-                            <Route exact path="/">
-                                <Redirect to="/heroes"></Redirect>
-                            </Route>
-                        </Switch>
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <Switch>
+                                <Route path="/heroes" component={Heroes} />
+                                <Route path="/cities" component={Cities} />
+                                <Route exact path="/">
+                                    <Redirect to="/citiess"></Redirect>
+                                </Route>
+                            </Switch>
+                        </Suspense>
                     </main>
                 </div>
             </Router>
