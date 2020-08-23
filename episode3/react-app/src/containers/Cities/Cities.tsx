@@ -2,7 +2,7 @@ import React from 'react';
 
 const cities = (props: any) => {
     return (
-        <h1>Cities</h1>
+        <h1>Kattegat</h1>
     )
 }
 

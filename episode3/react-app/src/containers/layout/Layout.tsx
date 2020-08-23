@@ -1,10 +1,11 @@
 import React, { Component, Suspense } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import Navigation from '../../component/Navigation/Navigation';
-import Cities from '../Cities/Cities';
 import classes from './Layout.module.scss';
+import myLazy from '../../hoc/myLazy';
 
-const Heroes = React.lazy(() => import("../Heroes/Heroes"));
+const Heroes = React.lazy(() => import('../Heroes/Heroes'));
+const Cities = myLazy(() => import('../Cities/Cities'));
 
 class Layout extends Component {
 
@@ -18,7 +19,7 @@ class Layout extends Component {
                     <Navigation></Navigation>
                     <main>
                         <h1>React vs Angular</h1>
-                        <Suspense fallback={<div>Loading...</div>}>
+                        <Suspense fallback="loading...">
                             <Switch>
                                 <Route path="/heroes" component={Heroes} />
                                 <Route path="/cities" component={Cities} />
