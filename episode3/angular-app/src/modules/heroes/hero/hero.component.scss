@@ -1,0 +1,14 @@
+.hero {
+    cursor: pointer;
+    background-color: #fff;
+    padding: 10px;
+    max-width: 200px;
+    box-sizing: border-box;
+    margin: 20px auto 0 auto;
+    &.green {
+      background-color: lightgreen;
+    }
+    & h2:hover & {
+      background-color: red;
+    }  
+  }
